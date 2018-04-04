@@ -3,6 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    toggle: true
+  };
+
+  toggle = () => {
+    this.setState({
+      toggle: !this.state.toggle
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -13,7 +23,12 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Welcome message="IT'S A SMARTER PROP MENSSAGE!" />
+        <Welcome
+          message="IT'S A SMARTER PROP MENSSAGE!"
+          toggle={this.state.toggle}
+        />
+        {this.state.toggle && <p>I'M HERE!</p>}
+        <button onClick={this.toggle}> Show / Hide </button>
       </div>
     );
   }
@@ -21,7 +36,8 @@ class App extends Component {
 
 class Welcome extends Component {
   render() {
-    const { message } = this.props;
+    const { message, toggle } = this.props;
+    console.log(toggle);
     return <h1>{message}</h1>;
   }
 }
