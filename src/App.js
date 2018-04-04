@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
   submit = () => {
-    console.log(this.message.value);
+    console.log(this.text);
   };
 
   render() {
@@ -14,11 +14,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
+        <p className="App-intro" ref={input => (this.text = input)}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Welcome message="IT'S A SMARTER PROP MENSSAGE!" />
-        <input type="text" ref={input => (this.message = input)} />
         <button onClick={this.submit}> Show Value </button>
       </div>
     );
