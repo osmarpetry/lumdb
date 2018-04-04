@@ -13,7 +13,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Welcome message="IT'S A PROP MENSSAGE!" />
+        <Welcome message="IT'S A SMARTER PROP MENSSAGE!" />
       </div>
     );
   }
@@ -21,7 +21,8 @@ class App extends Component {
 
 class Welcome extends Component {
   render() {
-    return <h1>{this.props.message}</h1>;
+    const { message } = this.props;
+    return <h1>{message}</h1>;
   }
 }
 
