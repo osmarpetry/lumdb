@@ -10,7 +10,7 @@ class App extends Component {
   updateInput = event => {
     console.log(event.target.value);
     this.setState({
-      input: event.target.value
+      input: event.target.value.trim()
     });
   };
 
@@ -29,6 +29,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Welcome message="IT'S A SMARTER PROP MENSSAGE!" />
+        <h3>{this.state.input}</h3>
         <input
           type="text"
           onChange={this.updateInput}
