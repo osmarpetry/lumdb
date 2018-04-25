@@ -2,50 +2,33 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Movie from './components/Movie';
+
+const movies = [
+  {
+    id: 1,
+    title: 'Mr. Nobody'
+  },
+  {
+    id: 2,
+    title: 'Spider Man'
+  },
+  {
+    id: 3,
+    title: 'The Fifth Element'
+  }
+];
+
 class App extends Component {
-  state = {
-    input: 'Hello'
-  };
-
-  updateInput = event => {
-    console.log(event.target.value);
-    this.setState({
-      input: event.target.value.trim()
-    });
-  };
-
-  submit = () => {
-    console.log(this.message.value);
-  };
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Welcome message="IT'S A SMARTER PROP MENSSAGE!" />
-        <h3>{this.state.input}</h3>
-        <input
-          type="text"
-          onChange={this.updateInput}
-          value={this.state.input}
-        />
-        <input type="text" ref={input => (this.message = input)} />
-        <button onClick={this.submit}> Show Value </button>
+        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
       </div>
     );
-  }
-}
-
-class Welcome extends Component {
-  render() {
-    const { message } = this.props;
-    return <h1>{message}</h1>;
   }
 }
 
