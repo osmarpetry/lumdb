@@ -11,7 +11,8 @@ const movies = [
   },
   {
     id: 2,
-    title: 'Spider Man'
+    title: 'Spider Man',
+    desc: 'Marvel Super-Hero Movie'
   },
   {
     id: 3,
@@ -26,7 +27,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
+        {movies.map(movie => <Movie key={movie.id} movie={movie} desc={movie.desc} />)}
       </div>
     );
   }
