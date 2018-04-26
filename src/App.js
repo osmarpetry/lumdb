@@ -15,7 +15,7 @@ const App = () => (
         </Link>
       </header>
       <Switch>
-        <Route exact={true} path="/" component={MoviesList} />
+        <Route exact path="/" component={MoviesList} />
         <Route path="/:id" component={Test} />
       </Switch>
     </div>
