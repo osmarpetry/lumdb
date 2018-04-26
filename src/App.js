@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import MoviesList from './components/MoviesList';
+import MovieDetails from './components/MovieDetails';
 
 const App = () => (
   <Router>
@@ -14,14 +15,14 @@ const App = () => (
           <img src={logo} className="App-logo" alt="logo" />
         </Link>
       </header>
-      <Switch>
-        <Route exact path="/" component={MoviesList} />
-        <Route path="/:id" component={Test} />
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path="/" component={MoviesList} />
+          <Route path="/:id" component={MovieDetails} />
+        </Switch>
+      </main>
     </div>
   </Router>
 );
 
 export default App;
-
-const Test = ({ match }) => <h3> {match.params.id} </h3>;
