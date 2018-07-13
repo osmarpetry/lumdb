@@ -1,12 +1,20 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-const Toggle = ({messageVisibility}) => (
+const Toggle = ({ messageVisibility, dispatch }) => (
   <Fragment>
     {messageVisibility && (
       <p>You will be seeing this if redux action is toggled</p>
     )}
-    <button>Toggle Me</button>
+    <button
+      onClick={() =>
+        dispatch({
+          type: 'TOGGLE_MESSAGE'
+        })
+      }
+    >
+      Toggle Me
+    </button>
   </Fragment>
 );
 
