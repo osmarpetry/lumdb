@@ -9,8 +9,9 @@ import { getMovies } from '../redux/movies/actions';
 
 class MoviesList extends PureComponent {
   componentDidMount() {
-    const { getMovies, isMoviesLoaded } = this.props;
-    if (!isMoviesLoaded) {
+    const { getMovies, isMoviesLoaded, moviesLoadedAt } = this.props;
+    const oneHour = 60 * 60 * 1000;
+    if (!isMoviesLoaded || new Date() - new Date(moviesLoadedAt) > oneHour) {
       getMovies();
     }
   }
@@ -28,7 +29,8 @@ class MoviesList extends PureComponent {
 
 const mapStateToProps = state => ({
   movies: state.movies.movies,
-  isMoviesLoaded: state.movies.isMoviesLoaded
+  isMoviesLoaded: state.movies.isMoviesLoaded,
+  moviesLoadedAt: state.movies.moviesLoadedAt
 });
 
 const mapDispatchProps = dispatch =>
