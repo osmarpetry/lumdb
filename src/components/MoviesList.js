@@ -3,35 +3,42 @@ import styled from 'styled-components';
 
 import Movie from './Movie';
 
-class MoviesList extends PureComponent {
-  state = {
-    movies: []
-  };
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getMovies } from '../redux/movies/actions';
 
-  async componentDidMount() {
-    try {
-      const res = await fetch(
-        'https://api.themoviedb.org/3/discover/movie?api_key=ddc64ae5e8e8de2f777406819ea8ee0f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
-      );
-      const movies = await res.json();
-      this.setState({
-        movies: movies.results
-      });
-    } catch (e) {
-      console.log(e);
-    }
+class MoviesList extends PureComponent {
+  componentDidMount() {
+    const { getMovies } = this.props;
+    getMovies();
   }
 
   render() {
+    const { movies } = this.props;
     return (
       <MovieGrid>
-        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
+        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
       </MovieGrid>
     );
   }
 }
 
-export default MoviesList;
+const mapStateToProps = state => ({
+  movies: state.movies.movies
+});
+
+const mapDispatchProps = dispatch =>
+  bindActionCreators(
+    {
+      getMovies
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchProps
+)(MoviesList);
 
 const MovieGrid = styled.div`
   display: grid;
