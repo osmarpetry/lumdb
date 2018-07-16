@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { toggleMessage, getMovies } from '../redux/Movies/actions';
+import { getMovies } from '../redux/movies/actions';
+import { toggleMessage } from '../redux/toggle/actions';
 
 const Toggle = ({ messageVisibility, toggleMessage, getMovies }) => (
   <Fragment>

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import message from './redux/Movies/reducer';
+import message from './redux/movies/reducer';
 
 const rootReducer = combineReducers({
   message
