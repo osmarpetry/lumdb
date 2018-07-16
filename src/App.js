@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import logger from 'redux-logger';
 
 import logo from './logo.svg';
 import './App.css';
@@ -13,7 +14,13 @@ import MoviesList from './components/MoviesList';
 import MovieDetails from './components/MovieDetails';
 import Toggle from './components/Toggle';
 
-const store = createStore(rootReducer, {}, composeWithDevTools());
+const middleware = [logger];
+
+const store = createStore(
+  rootReducer,
+  {},
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
 const App = () => (
   <Provider store={store}>
