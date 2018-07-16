@@ -1,4 +1,5 @@
 export const GET_MOVIES = 'GET_MOVIES';
+export const GET_MOVIE = 'GET_MOVIE';
 
 export function getMovies() {
   return async function(dispatch) {
@@ -9,6 +10,19 @@ export function getMovies() {
     return dispatch({
       type: 'GET_MOVIES',
       data: movies.results
+    });
+  };
+}
+
+export function getMovie(id) {
+  return async function(dispatch) {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=ddc64ae5e8e8de2f777406819ea8ee0f&language=en-US`
+    );
+    const movie = await res.json();
+    return dispatch({
+      type: 'GET_MOVIE',
+      data: movie
     });
   };
 }

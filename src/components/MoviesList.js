@@ -9,12 +9,15 @@ import { getMovies } from '../redux/movies/actions';
 
 class MoviesList extends PureComponent {
   componentDidMount() {
-    const { getMovies } = this.props;
-    getMovies();
+    const { getMovies, isMoviesLoaded } = this.props;
+    if (!isMoviesLoaded) {
+      getMovies();
+    }
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies, isMoviesLoaded } = this.props;
+    if (!isMoviesLoaded) return <h1>Loading...</h1>;
     return (
       <MovieGrid>
         {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
@@ -24,7 +27,8 @@ class MoviesList extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  movies: state.movies.movies
+  movies: state.movies.movies,
+  isMoviesLoaded: state.movies.isMoviesLoaded
 });
 
 const mapDispatchProps = dispatch =>
