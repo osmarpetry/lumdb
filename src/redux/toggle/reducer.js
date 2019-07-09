@@ -1,15 +1,15 @@
-import { TOGGLE_MESSAGE } from './actions';
+import { TOGGLE_MESSAGE } from './actions'
 
 const initialState = {
-  messageVisibility: false
-};
+    messageVisibility: false
+}
 
 export default (state = initialState, action) => {
-  const { type } = action;
-  switch (type) {
+    const { type } = action
+    switch (type) {
     case TOGGLE_MESSAGE:
-      return { ...state, messageVisibility: !state.messageVisibility };
+        return { ...state, messageVisibility: !state.messageVisibility }
     default:
-      return state;
-  }
-};
+        return state
+    }
+}
