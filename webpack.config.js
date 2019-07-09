@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
@@ -115,7 +114,6 @@ module.exports = {
             filename: './index.html',
             favicon: './public/favicon.ico'
         }),
-        new Dotenv(),
         new GenerateSW({
             swDest: 'sw.js',
             clientsClaim: true,
