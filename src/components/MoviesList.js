@@ -55,9 +55,8 @@ export default connect(
 )(MoviesList)
 
 const MovieGrid = styled.div`
-    display: grid;
+    display: flex;
     margin-top: 1rem;
-    padding: 1rem;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 1rem;
+    justify-content: space-around;
+    flex-wrap: wrap
 `
