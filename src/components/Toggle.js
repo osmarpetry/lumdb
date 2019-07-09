@@ -6,10 +6,10 @@ import { toggleMessage } from '../redux/toggle/actions'
 
 const Toggle = ({ messageVisibility, toggleMessage }) => (
     <Fragment>
-        {messageVisibility && (
+        { messageVisibility && (
             <p>You will be seeing this if redux action is toggled</p>
-        )}
-        <button onClick={toggleMessage}>Toggle Me</button>
+        ) }
+        <button onClick={ toggleMessage }>Toggle Me</button>
     </Fragment>
 )
 

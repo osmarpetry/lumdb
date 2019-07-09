@@ -26,19 +26,18 @@ const store = createStore(
 )
 
 const App = () => (
-    <Provider store={store}>
+    <Provider store={ store }>
         <Router>
             <div className='App'>
                 <header className='App-header'>
                     <Link to='/'>
-                        <img src={logo} className='App-logo' alt='logo' />
+                        <img src={ logo } className='App-logo' alt='logo' />
                     </Link>
                 </header>
                 <main className='App-main'>
-                    <Toggle />
                     <Switch>
-                        <Route exact path='/' component={MoviesList} />
-                        <Route path='/:id' component={MovieDetails} />
+                        <Route exact path='/' component={ MoviesList } />
+                        <Route path='/:id' component={ MovieDetails } />
                     </Switch>
                 </main>
             </div>

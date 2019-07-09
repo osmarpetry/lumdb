@@ -27,9 +27,9 @@ class MoviesList extends PureComponent {
 
         return (
             <MovieGrid>
-                {movies.map(movie => (
-                    <Movie key={movie.id} movie={movie} />
-                ))}
+                { movies.map(movie => (
+                    <Movie key={ movie.id } movie={ movie } />
+                )) }
             </MovieGrid>
         )
     }
@@ -56,7 +56,8 @@ export default connect(
 
 const MovieGrid = styled.div`
     display: grid;
+    margin-top: 1rem;
     padding: 1rem;
     grid-template-columns: repeat(6, 1fr);
-    grid-row-gap: 1rem;
+    grid-gap: 1rem;
 `
