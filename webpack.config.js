@@ -85,19 +85,19 @@ module.exports = {
     },
     plugins: [
         new WebpackPwaManifest({
-            'filename': 'manifest.json',
-            'short_name': 'LUMB',
-            'name': 'LUMB',
-            'description': 'LUMB - Lastest movies',
-            'theme_color': '#000000',
-            'background_color': '#000000',
-            'display': 'standalone',
-            'scope': '/',
-            'start_url': '/',
-            'icons': [
+            filename: 'manifest.json',
+            short_name: 'LUMB',
+            name: 'LUMB',
+            description: 'LUMB - Lastest movies',
+            theme_color: '#000000',
+            background_color: '#000000',
+            display: 'standalone',
+            scope: '/',
+            start_url: '/',
+            icons: [
                 {
-                    'src': path.resolve('public/icon-512x512.png'),
-                    'sizes': [96, 128, 192, 256, 384, 512]
+                    src: path.resolve('public/icon-512x512.png'),
+                    sizes: [96, 128, 192, 256, 384, 512]
                 }
             ]
         }),
@@ -120,10 +120,12 @@ module.exports = {
             swDest: 'sw.js',
             clientsClaim: true,
             skipWaiting: true,
-            runtimeCaching: [{
-                urlPattern: new RegExp('googleapis'),
-                handler: 'StaleWhileRevalidate'
-            }]
+            runtimeCaching: [
+                {
+                    urlPattern: new RegExp('googleapis'),
+                    handler: 'StaleWhileRevalidate'
+                }
+            ]
         })
     ],
     optimization: {
