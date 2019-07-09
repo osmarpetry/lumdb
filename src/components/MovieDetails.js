@@ -24,7 +24,10 @@ class MovieDetails extends Component {
 
     render() {
         const { movie } = this.props
-        if (!movie.id) return null
+        if (!movie.id) {
+            return null
+        }
+
         return (
             <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
                 <MovieInfo>

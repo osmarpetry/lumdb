@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import React from 'react'
+import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
-import { save, load } from 'redux-localstorage-simple'
+import { load, save } from 'redux-localstorage-simple'
 
 import logo from './logo.svg'
 import './App.css'

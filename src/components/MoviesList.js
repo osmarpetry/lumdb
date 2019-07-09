@@ -21,7 +21,10 @@ class MoviesList extends PureComponent {
 
     render() {
         const { movies, isMoviesLoaded } = this.props
-        if (!isMoviesLoaded) return <h1>Loading...</h1>
+        if (!isMoviesLoaded) {
+            return <h1>Loading...</h1>
+        }
+
         return (
             <MovieGrid>
                 {movies.map(movie => (

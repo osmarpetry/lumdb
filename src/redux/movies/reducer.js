@@ -1,4 +1,4 @@
-import { GET_MOVIES, GET_MOVIE, RESET_MOVIE } from './actions'
+import { GET_MOVIE, GET_MOVIES, RESET_MOVIE } from './actions'
 
 const initialState = {
     movies: [],
