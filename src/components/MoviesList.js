@@ -58,5 +58,5 @@ const MovieGrid = styled.div`
     display: flex;
     margin-top: 1rem;
     justify-content: space-around;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 `
