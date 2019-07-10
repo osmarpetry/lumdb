@@ -85,9 +85,9 @@ module.exports = {
     plugins: [
         new WebpackPwaManifest({
             filename: 'manifest.json',
-            short_name: 'LUMB',
-            name: 'LUMB',
-            description: 'LUMB - Lastest movies',
+            short_name: 'LUMDB',
+            name: 'LUMDB',
+            description: 'LUMDB - Latest updated movies database',
             theme_color: '#000000',
             background_color: '#000000',
             display: 'standalone',

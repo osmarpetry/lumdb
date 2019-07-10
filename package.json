@@ -1,5 +1,5 @@
 {
-    "name": "lumb",
+    "name": "lumdb",
     "version": "0.1.2",
     "dependencies": {
         "prop-types": "15.7.2",
