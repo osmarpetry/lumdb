@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
     case GET_MOVIES:
         return {
             ...state,
-            movies: data,
+            movies: state.movies.concat(data),
             isMoviesLoaded: true,
             moviesLoadedAt: new Date()
         }
