@@ -14,7 +14,7 @@ import rootReducer from './rootReducer'
 import MoviesList from './components/MoviesList'
 import MovieDetails from './components/MovieDetails'
 
-const middleware = [ thunk]
+const middleware = [thunk]
 
 const store = createStore(
     rootReducer,
