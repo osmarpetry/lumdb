@@ -36,19 +36,17 @@ class MoviesList extends PureComponent {
         }
 
         return (
-            <div>
-                <InifiniteScroll
-                    dataLength={ movies.length }
-                    next={ this.fetchMovies }
-                    hasMore
-                    loader={ <h1>Carrengado...</h1> }>
-                    <MovieGrid>
-                        { movies.map(movie =>
-                            <Movie key={ movie.id } movie={ movie } />
-                        ) }
-                    </MovieGrid>
-                </InifiniteScroll>
-            </div>
+            <InifiniteScroll
+                dataLength={ movies.length }
+                next={ this.fetchMovies }
+                hasMore
+                loader={ <h1>Carrengado...</h1> }>
+                <MovieGrid>
+                    { movies.map(movie =>
+                        <Movie key={ movie.id } movie={ movie } />
+                    ) }
+                </MovieGrid>
+            </InifiniteScroll>
         )
     }
 }
