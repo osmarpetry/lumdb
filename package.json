@@ -15,11 +15,11 @@
     },
     "scripts": {
         "test": "mocha spec/**/*.spec.js",
-        "start": "webpack-dev-server --color --mode development",
-        "start:prod": "webpack-dev-server --progress --color --mode production",
+        "start": "webpack-dev-server --color --mode development --progress",
+        "start:prod": "webpack-dev-server --progress --color --mode production --progress",
         "lint": "eslint -c .eslintrc.json 'src/**/*.{js,jsx}'",
         "lint:fix": "eslint --fix 'src/**/*.{js,jsx}'",
-        "release": "webpack --mode production",
+        "release": "webpack --mode production --progress",
         "prettier": "prettier --write \"./**/*.{js,jsx,json}\""
     },
     "browserslist": [
@@ -33,7 +33,6 @@
         "@babel/plugin-transform-runtime": "7.5.0",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "7.0.0",
-        "@svgr/webpack": "4.3.1",
         "babel-eslint": "10.0.2",
         "babel-loader": "8.0.6",
         "babel-plugin-transform-class-properties": "6.24.1",

@@ -17,11 +17,7 @@ module.exports = {
     },
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.jsx'],
-        alias: {
-            react: path.resolve(__dirname, 'node_modules', 'react'),
-            '@horas': path.resolve(__dirname, 'src')
-        }
+        extensions: ['.js', '.jsx']
     },
     module: {
         rules: [
@@ -32,47 +28,16 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: ['@svgr/webpack', 'url-loader']
+                use: ['url-loader']
             },
             {
                 test: /\.html$/,
-                use: [
-                    {
-                        loader: 'html-loader'
-                    }
-                ],
+                use: ['html-loader'],
                 exclude: /node_modules/
-            },
-            {
-                test: /\.(gif|png|jpg|jpeg)$/i,
-                use: ['file-loader'],
-                exclude: /node_modules/
-            },
-            {
-                test: /\.(png|woff|woff2|eot|ttf)$/,
-                loader: 'url-loader?limit=100000'
-            },
-            {
-                test: /\.sass$/,
-                use: [
-                    'style-loader', // creates style nodes from JS strings
-                    'css-loader', // translates CSS into CommonJS
-                    'sass-loader' // compiles Sass to CSS, using Node Sass by default
-                ]
             },
             {
                 test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }
-                ]
+                use:['style-loader','css-loader']
             }
         ]
     },
@@ -117,13 +82,7 @@ module.exports = {
         new GenerateSW({
             swDest: 'sw.js',
             clientsClaim: true,
-            skipWaiting: true,
-            runtimeCaching: [
-                {
-                    urlPattern: new RegExp('googleapis'),
-                    handler: 'StaleWhileRevalidate'
-                }
-            ]
+            skipWaiting: true
         })
     ],
     optimization: {
