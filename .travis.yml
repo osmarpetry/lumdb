@@ -7,7 +7,7 @@ addons:
       - libgconf-2-4
 
 before_install:
-  - yarn global install firebase-tools
+  - yarn global add firebase-tools
 install:
   - npm i
 
