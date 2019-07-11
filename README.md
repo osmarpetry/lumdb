@@ -1,12 +1,16 @@
 # LUMDB
 Application developed during the year 2018, for the purpose of an exploratory analysis of Redux with React. The application shows the most popular movies according to [The Movie DB](https://www.themoviedb.org/?language=en-US).
 
+My Lighthouse score is in the following image:
+
+![LUMDB Lighthouse Score](https://paper-attachments.dropbox.com/s_09FD78B46731843365377929C457B25A6A592DBA5A41C7B2079869D4726AC833_1562871054462_Screenshot_20190711_144201.png)
+
 ## What the project has
 
 Today the project has:
 
 - Hosting on Firebase
-- Sentry for test tracking 
+- Sentry for test tracking
 - Redux
 - CI/CD with Travis-CI
 - Webpack
@@ -24,7 +28,7 @@ To help, it is necessary to do the project setup, as instructed in the sub-topic
 ![Fork button on Github](https://paper-attachments.dropbox.com/s_4C296FD04C70E1AA93F121DEEDBDB4413517CB63FFB0F178E10CA4F7986B7B6E_1561321377007_687474703a2f2f692e737461636b2e696d6775722e636f6d2f6c72346d6c2e706e67.png)
 
 
- 
+
 **Dependencies for installation**
 You must have a version installed on your operating system, should chose the latest LTS version.
 
