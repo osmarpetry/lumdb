@@ -2,5 +2,6 @@
     "projectID": "lumdb",
     "video": false,
     "baseUrl": "http://localhost:8080",
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
+    "ignoreTestFiles": ["/**/*.step.js"]
 }

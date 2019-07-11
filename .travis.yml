@@ -17,7 +17,7 @@ install:
 
 before_script:
   - npm test
-  - npm start -- --silent &
+  - npm start:prod -- --silent &
 script:
   - $(npm bin)/cypress run
 after_success:
