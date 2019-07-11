@@ -4,50 +4,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const SentryCliPlugin = require('@sentry/webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+const packageFile = require('./package.json')
 
-module.exports = {
-    entry: ['./src/index.js'],
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: '[name].[contenthash].js',
-        sourceMapFilename: '[name].[contenthash].js.map',
-        chunkFilename: '[name][chunkhash].js',
-        publicPath: '/'
-    },
-    devtool: 'source-map',
-    resolve: {
-        extensions: ['.js', '.jsx']
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(j)sx?$/,
-                use: { loader: 'babel-loader' },
-                exclude: /node_modules/
-            },
-            {
-                test: /\.svg$/,
-                use: ['url-loader']
-            },
-            {
-                test: /\.html$/,
-                use: ['html-loader'],
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
-        ]
-    },
-    devServer: {
-        compress: true,
-        historyApiFallback: true,
-        overlay: true,
-        port: 8080
-    },
-    plugins: [
+module.exports = (env, arg) => {
+    const webpackPlugins = [
         new WebpackPwaManifest({
             filename: 'manifest.json',
             short_name: 'LUMDB',
@@ -83,16 +45,74 @@ module.exports = {
             swDest: 'sw.js',
             clientsClaim: true,
             skipWaiting: true
+        }),
+        new webpack.EnvironmentPlugin({
+            LUMDB_ENV: arg.mode
         })
-    ],
-    optimization: {
-        minimizer: [new UglifyJsPlugin()],
-        runtimeChunk: 'single',
-        splitChunks: {
-            chunks: 'all',
-            minChunks: 2,
-            maxInitialRequests: Infinity,
-            minSize: 0
+    ]
+
+    if (arg.mode !== 'development') {
+        webpackPlugins.push(
+            new SentryCliPlugin({
+                include: path.join(__dirname, 'dist'),
+                ignore: ['node_modules', 'webpack.*.js'],
+                release: packageFile.version,
+                configFile: 'sentry.properties'
+            })
+        )
+    }
+
+    return {
+        entry: ['./src/index.js'],
+        output: {
+            path: path.join(__dirname, 'dist'),
+            filename: '[name].[contenthash].js',
+            sourceMapFilename: '[name].[contenthash].js.map',
+            chunkFilename: '[name][chunkhash].js',
+            publicPath: '/'
+        },
+        devtool: 'source-map',
+        resolve: {
+            extensions: ['.js', '.jsx']
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.(j)sx?$/,
+                    use: { loader: 'babel-loader' },
+                    exclude: /node_modules/
+                },
+                {
+                    test: /\.svg$/,
+                    use: ['url-loader']
+                },
+                {
+                    test: /\.html$/,
+                    use: ['html-loader'],
+                    exclude: /node_modules/
+                },
+                {
+                    test: /\.css$/,
+                    use: ['style-loader', 'css-loader']
+                }
+            ]
+        },
+        devServer: {
+            compress: true,
+            historyApiFallback: true,
+            overlay: true,
+            port: 8080
+        },
+        plugins: webpackPlugins,
+        optimization: {
+            minimizer: [new UglifyJsPlugin()],
+            runtimeChunk: 'single',
+            splitChunks: {
+                chunks: 'all',
+                minChunks: 2,
+                maxInitialRequests: Infinity,
+                minSize: 0
+            }
         }
     }
 }
