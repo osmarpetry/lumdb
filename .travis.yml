@@ -5,21 +5,17 @@ addons:
   apt:
     packages:
       - libgconf-2-4
-cache:
-  npm: true
-  directories:
-    - ~/.cache
 
 before_install:
-  - npm i -g firebase-tools
+  - yarn global install firebase-tools
 install:
   - npm i
 
 before_script:
-  - npm test
-  - npm start -- --silent &
+  - yarn test
+  - yarn start:prod -- --silent &
 script:
-  - $(npm bin)/cypress run
+  - yarn cy:run
 after_success:
   - yarn release
   - firebase deploy -m "Travis deploy" --non-interactive --token $FIREBASE_TOKEN
