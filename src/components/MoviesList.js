@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
+import ReactLoading from 'react-loading'
 import InifiniteScroll from 'react-infinite-scroll-component'
 
 import Movie from './Movie'
@@ -18,6 +19,14 @@ class MoviesList extends PureComponent {
         this.setState({ count: this.state.count + 1 })
     }
 
+    renderLoading = () =>
+        <div style={ {
+            display: 'flex',
+            justifyContent: 'center'
+        } }>
+            <ReactLoading type='bubbles' color='#fff' />
+        </div>
+
     componentDidMount() {
         const { isMoviesLoaded, moviesLoadedAt } = this.props
         const oneHour = 60 * 60 * 1000
@@ -32,7 +41,7 @@ class MoviesList extends PureComponent {
     render() {
         const { movies, isMoviesLoaded } = this.props
         if (!isMoviesLoaded) {
-            return <h1>Loading...</h1>
+            return this.renderLoading()
         }
 
         return (
@@ -40,7 +49,7 @@ class MoviesList extends PureComponent {
                 dataLength={ movies.length }
                 next={ this.fetchMovies }
                 hasMore
-                loader={ <h1>Carrengado...</h1> }>
+                loader={ this.renderLoading() }>
                 <MovieGrid>
                     { movies.map(movie =>
                         <Movie key={ movie.id } movie={ movie } />
