@@ -22,6 +22,6 @@ script:
 after_success:
   - yarn release
   - firebase deploy -m "Travis deploy" --non-interactive --token $FIREBASE_TOKEN
-  branches:
+branches:
   only:
     - master
