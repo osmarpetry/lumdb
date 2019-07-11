@@ -16,6 +16,7 @@ install:
   - npm i
 
 before_script:
+  - npm test
   - npm start -- --silent &
 script:
   - $(npm bin)/cypress run
