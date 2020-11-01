@@ -12,25 +12,31 @@
         "swr": "0.3.7"
     },
     "scripts": {
-        "test": "mocha spec/**/*.spec.js",
-        "start": "react-scripts start",
         "build": "react-scripts build",
+        "start": "react-scripts start",
+        "test": "react-scripts test",
         "cy:run": "cypress run",
         "cy:open": "cypress open",
+        "type-check": "tsc --noEmit",
         "lint": "eslint -c .eslintrc.json 'src/**/*.{js,jsx}'",
         "lint:fix": "eslint --fix 'src/**/*.{js,jsx}'",
         "prettier": "prettier --write \"./**/*.{js,jsx,json}\""
     },
     "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
+        "last 2 versions",
+        "last 5 Chrome versions",
+        "Firefox >= 60",
+        "Edge >= 15",
+        "Safari >= 10",
+        "IE >= 11"
     ],
     "devDependencies": {
         "@cypress/webpack-preprocessor": "5.4.6",
         "@sentry/browser": "5.24.2",
         "@sentry/webpack-plugin": "1.13.0",
+        "@testing-library/jest-dom": "5.11.5",
+        "@testing-library/react": "11.1.0",
+        "@testing-library/user-event": "12.1.10",
         "@types/react": "16.9.49",
         "@types/react-dom": "16.9.8",
         "@types/react-router-dom": "5.1.6",
