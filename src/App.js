@@ -4,8 +4,8 @@ import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
 
-import MoviesList from './components/MoviesList'
-import MovieDetails from './components/MovieDetails'
+import MoviesList from 'container/MovieList'
+import MovieDetails from 'container/MovieDetails'
 
 const App = () => (
     <Router>

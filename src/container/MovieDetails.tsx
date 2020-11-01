@@ -5,7 +5,7 @@ import Axios, { AxiosError } from 'axios'
 import styled, { css } from 'styled-components'
 
 import Overdrive from 'react-overdrive'
-import { Poster } from './Movie'
+import { PosterImage } from 'components'
 
 import { Movie } from 'core/domains/Movie'
 
@@ -34,7 +34,7 @@ function MovieDetails({ match }: RouteComponentProps<MovieDetailsProps>) {
         <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
             <MovieInfo>
                 <Overdrive id={movie.id}>
-                    <Poster
+                    <PosterImage
                         src={`${POSTER_PATH}${movie.poster_path}`}
                         alt={movie.title}
                     />

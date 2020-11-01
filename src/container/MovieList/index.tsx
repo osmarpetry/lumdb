@@ -4,7 +4,7 @@ import useInfiniteScroll from 'react-infinite-scroll-hook'
 import { useSWRInfinite } from 'swr'
 import Axios, { AxiosError } from 'axios'
 
-import Movie from './Movie'
+import Poster from 'container/MovieList/Poster'
 import { Movie as MovieInterface } from 'core/domains/Movie'
 
 interface Data {
@@ -35,7 +35,7 @@ const MoviesList = () => {
         <MovieGrid ref={infiniteRef as any}>
             {data?.map((movies: any) => {
                 return movies.data.results.map((movie: MovieInterface) => (
-                    <Movie key={movie.id} movie={movie} />
+                    <Poster key={movie.id} movie={movie} />
                 ))
             })}
         </MovieGrid>
