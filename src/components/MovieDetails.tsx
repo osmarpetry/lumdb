@@ -14,7 +14,7 @@ interface MovieDetailsProps {
     id: string
 }
 
-interface Movie {
+export interface Movie {
     id: string
     backdrop_path: string
     poster_path: string

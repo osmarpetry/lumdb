@@ -1,19 +1,14 @@
-import Axios, { AxiosError } from 'axios'
 import React from 'react'
 import styled from 'styled-components'
 import { useSWRInfinite } from 'swr'
+import Axios, { AxiosError } from 'axios'
 
-import Movie from './Movie'
 import useInfiniteScroll from 'react-infinite-scroll-hook'
-
-interface Movie {
-    id: string
-    title: string
-    poster_path: string
-}
+import Movie from './Movie'
+import {Movie as MovieInterface} from './MovieDetails'
 
 interface Data {
-    data: { results: Movie[]; total_pages: number }
+    data: { results: MovieInterface[]; total_pages: number }
 }
 
 const MoviesList = () => {
@@ -36,7 +31,7 @@ const MoviesList = () => {
     return (
         <MovieGrid ref={infiniteRef as any}>
             {data?.map((movies: any) => {
-                return movies.data.results.map((movie: Movie) => (
+                return movies.data.results.map((movie: MovieInterface) => (
                     <Movie key={movie.id} movie={movie} />
                 ))
             })}
