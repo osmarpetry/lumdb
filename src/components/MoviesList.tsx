@@ -1,18 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import useInfiniteScroll from 'react-infinite-scroll-hook'
 import { useSWRInfinite } from 'swr'
 import Axios, { AxiosError } from 'axios'
 
-import useInfiniteScroll from 'react-infinite-scroll-hook'
 import Movie from './Movie'
-import {Movie as MovieInterface} from './MovieDetails'
+import { Movie as MovieInterface } from 'core/domains/Movie'
 
 interface Data {
     data: { results: MovieInterface[]; total_pages: number }
 }
 
 const MoviesList = () => {
-    const { data, isValidating, size, setSize } = useSWRInfinite<Data, AxiosError>(
+    const { data, isValidating, size, setSize } = useSWRInfinite<
+        Data,
+        AxiosError
+    >(
         index => [
             'https://api.themoviedb.org/3/discover/movie?api_key=ddc64ae5e8e8de2f777406819ea8ee0f&language=' +
                 'en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=' +

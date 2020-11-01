@@ -7,6 +7,8 @@ import styled, { css } from 'styled-components'
 import Overdrive from 'react-overdrive'
 import { Poster } from './Movie'
 
+import { Movie } from 'core/domains/Movie'
+
 const BACKDROP_PATH = 'https://image.tmdb.org/t/p/w1280'
 const POSTER_PATH = 'https://image.tmdb.org/t/p/w154'
 
@@ -14,17 +16,8 @@ interface MovieDetailsProps {
     id: string
 }
 
-export interface Movie {
-    id: string
-    backdrop_path: string
-    poster_path: string
-    title: string
-    release_date: string
-    overview: string
-}
-
 function MovieDetails({ match }: RouteComponentProps<MovieDetailsProps>) {
-    const { data } = useSWR<{data: Movie}, AxiosError>(
+    const { data } = useSWR<{ data: Movie }, AxiosError>(
         'https://api.themoviedb.org/3/movie/' +
             match.params.id +
             '?api_key=' +
