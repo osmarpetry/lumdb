@@ -4,7 +4,6 @@ import useSWR from 'swr'
 import Axios, { AxiosError } from 'axios'
 import styled, { css } from 'styled-components'
 
-import Overdrive from 'react-overdrive'
 import { PosterImage } from 'components'
 
 import { Movie } from 'core/domains/Movie'
@@ -33,12 +32,10 @@ function MovieDetails({ match }: RouteComponentProps<MovieDetailsProps>) {
     return (
         <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
             <MovieInfo>
-                <Overdrive id={movie.id}>
-                    <PosterImage
-                        src={`${POSTER_PATH}${movie.poster_path}`}
-                        alt={movie.title}
-                    />
-                </Overdrive>
+                <PosterImage
+                    src={`${POSTER_PATH}${movie.poster_path}`}
+                    alt={movie.title}
+                />
                 <div>
                     <h1>{movie.title}</h1>
                     <h3>{movie.release_date}</h3>
