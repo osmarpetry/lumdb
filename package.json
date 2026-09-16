@@ -37,7 +37,7 @@
     ],
     "devDependencies": {
         "@cypress/webpack-preprocessor": "5.4.6",
-        "@sentry/browser": "5.24.2",
+        "@sentry/browser": "10.74.0",
         "@sentry/webpack-plugin": "2.1.0",
         "@testing-library/jest-dom": "5.11.5",
         "@testing-library/react": "12.1.5",
