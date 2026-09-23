@@ -50,7 +50,7 @@
         "@types/styled-components": "5.1.4",
         "@typescript-eslint/eslint-plugin": "4.6.0",
         "@typescript-eslint/parser": "4.6.0",
-        "cypress": "5.5.0",
+        "cypress": "16.1.0",
         "cypress-cucumber-preprocessor": "3.0.0",
         "prettier": "3.9.8",
         "react-scripts": "4.0.0",
