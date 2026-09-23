@@ -11083,10 +11083,17 @@ react-error-overlay@^6.0.8:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.8.tgz#474ed11d04fc6bda3af643447d85e9127ed6b5de"
   integrity sha512-HvPuUQnLp5H7TouGq3kzBeioJmXms1wHy9EGjz2OURWBp4qZO6AfGEcnxts1D/CbwPLRAgTMPCEgYhA3sEM4vw==
 
-react-infinite-scroll-hook@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-infinite-scroll-hook/-/react-infinite-scroll-hook-3.0.0.tgz#13b1b4f95769a75da9d615905f4cbf78ccebf1f1"
-  integrity sha512-uLWsLAZ4jJqv6iHq4w7sySK6P059xgh1I98MSiV3UhZacMELhcdr9AycobC41ctIXU/Z9+caPNWwiJJZHwKCaw==
+react-infinite-scroll-hook@5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/react-infinite-scroll-hook/-/react-infinite-scroll-hook-5.0.2.tgz#1d84c8bee38302b6d06e47e5969357e1652672f5"
+  integrity sha512-CappfAyRrShFF5McYWTB8sRjiiLc9Jbs6SNhIGFH+QQgQRcRuaovKwQnGGEb14fRWg2czlRxISoAO7Rtf0nbPA==
+  dependencies:
+    react-intersection-observer-hook "^3.0.0"
+
+react-intersection-observer-hook@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer-hook/-/react-intersection-observer-hook-3.0.1.tgz#bc56fd9da64d26e45d277bba10ccad57c7510a64"
+  integrity sha512-nehzFUV+jVY49tc9FOm4yJHrmFFtCmsBZKiN1rUUB2675CMBf6kKu1ekuTqvCnmh4XG7RFP3bMyAevfqfV94xw==
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
