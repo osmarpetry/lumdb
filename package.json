@@ -54,7 +54,7 @@
         "cypress-cucumber-preprocessor": "3.0.0",
         "prettier": "3.9.8",
         "react-scripts": "4.0.0",
-        "typescript": "4.0.5"
+        "typescript": "7.0.2"
     },
     "cypress-cucumber-preprocessor": {
         "nonGlobalStepDefinitions": true
